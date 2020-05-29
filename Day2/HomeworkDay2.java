@@ -1,3 +1,5 @@
+//leetcode 26
+//https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 public class HomeworkDay2 {
     public int removeDuplicates(int[] nums) {
         if (null == nums || nums.length <= 0) {
