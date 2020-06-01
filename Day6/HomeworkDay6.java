@@ -1,5 +1,7 @@
 // 验证二叉搜索树
 // https://leetcode-cn.com/problems/validate-binary-search-tree/
+import java.util.*;
+
 public class HomeworkDay6 {
 
     public class TreeNode {
@@ -22,4 +24,20 @@ public class HomeworkDay6 {
         return true;
     }
 
+    public boolean isValidBST1(TreeNode root) {
+        if (null == root) return true;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (!stack.isEmpty() || null != cur) {
+            while (null != cur) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            if (cur.val <= pre) return false;
+            pre = cur.val;
+            cur = cur.right;
+        }
+        return true;
+    }
 }
